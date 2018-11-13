@@ -11,24 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    $tasks = [
-        ['task' => 'Start learning Laravel', 'completed' => true],
-        ['task' => 'Keep learning Vue', 'completed' => true],
-        ['task' => 'Keep learning Postgres', 'completed' => false],
-        ['task' => 'Keep learning Redis', 'completed' => false],
-        ['task' => 'Keep learning modern HTML/CSS', 'completed' => true],
-        ['task' => 'Stay calm', 'completed' => false]
-    ];
-
-    return view('home', ['tasks' => $tasks]);
-});
+Route::get('/', 'MainController@home');
 
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', 'MainController@about');
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', 'MainController@contact');
