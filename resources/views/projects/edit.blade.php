@@ -8,6 +8,8 @@
 
     <hr />
 
+    @include('partials.errors')
+
     <form action="/projects/{{ $project->id }}" method="POST">
         @csrf
 
