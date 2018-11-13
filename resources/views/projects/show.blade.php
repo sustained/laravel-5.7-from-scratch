@@ -18,4 +18,22 @@
 
     <p>{{ $project->description }}</p>
 
+    @if($project->tasks->count())
+
+        <hr />
+
+        <h3>Tasks</h3>
+
+        <ul>
+
+        @foreach($project->tasks as $task)
+
+            <li>{{ $task->description }}</li>
+
+        @endforeach
+
+        </ul>
+
+    @endif
+
 @endsection
