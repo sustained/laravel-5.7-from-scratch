@@ -1,17 +1,11 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.main')
 
-        <title>Laravel 5.7 from Scratch</title>
-    </head>
+@section('title', 'Contact')
 
-    <body>
-        <h1>Contact</h1>
+@section('content')
 
-        <p>Alas there is no contact form here.</p>
+    <h1>Contact</h1>
 
-        <p>Why not <a href="/">go back home</a>?</p>
-    </body>
-</html>
+    <p>Alas there is no contact form here.</p>
+
+@endsection

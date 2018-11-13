@@ -1,17 +1,13 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.main')
 
-        <title>Laravel 5.7 from Scratch</title>
-    </head>
+@section('title', 'Home')
 
-    <body>
-        <h1>Home</h1>
+@section('content')
 
-        <p>Welcome home!</p>
+    <h1>Home</h1>
 
-        <p>Why not <a href="/contact">contact us</a>?</p>
-    </body>
-</html>
+    <p>Welcome home!</p>
+
+    <p>Why not <a href="/contact">contact us</a>?</p>
+
+@endsection
