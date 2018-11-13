@@ -8,13 +8,17 @@
         <li><a href="/projects/create">Create a New Project</a>
     </ul>
 
-    <h1>Projects</h1>
+    <hr />
+
+    <h1>View All Projects</h1>
+
+    <hr />
 
     <ul>
 
     @foreach($projects as $project)
 
-        <li>{{ $project->title }}</li>
+        <li><a href="/projects/{{ $project->id }}">{{ $project->title }}</a></li>
 
     @endforeach
 

@@ -2,17 +2,11 @@
 
 @section('title', 'Create Project')
 
-@push('inline-styles') /* css */
-
-    form div {
-        margin: 10px;
-    }
-
-@endpush
-
 @section('content')
 
     <h1>Create a Project</h1>
+
+    <hr />
 
     <form action="/projects" method="POST">
         @csrf
@@ -26,7 +20,7 @@
         </div>
 
         <div>
-            <button type="submit">Create Project</button>
+            <button class="create" type="submit">Create Project</button>
         </div>
     </form>
 @endsection

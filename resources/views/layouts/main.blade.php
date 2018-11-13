@@ -65,6 +65,27 @@ main#content {
     margin: 3em;
 }
 
+form div {
+    margin: 10px;
+}
+
+button {
+    border: 1px solid #353535;
+    font-weight: bold;
+}
+
+button.create {
+    background-color: #41f443;
+}
+
+button.edit {
+    background-color: #4286f4;
+}
+
+button.delete {
+    background-color: #f44141;
+}
+
 @stack('inline-styles');
         </style>
     </head>
