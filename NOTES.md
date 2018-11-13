@@ -60,3 +60,42 @@ Route::post('/projects', 'ProjectsController@store');
 Route::patch('/projects/{project}', 'ProjectsController@update');
 Route::delete('/projects/{project}', 'ProjectsController@destroy');
 ```
+# Cleaner Controllers and Mass Assignment Concerns (ep. 14)
+
+# Assigning to Models
+
+```php
+// Method 1
+$model = new Model;
+$model->foo = request('foo');
+$model->bar = request('bar');
+$model->save();
+
+// Method 2
+$model = new Model;
+$model->create([
+    'foo' => request('foo'),
+    'bar' => request('bar')
+]);
+
+// Method 3 - Can trigger mass assignment protection
+$model = new Model;
+$model->create(request()->all());
+
+// Method 4 - Can trigger mass assignment protection
+$model = new Model;
+$model->create(request(['foo', 'bar']));
+```
+
+# (Dis)allowing fields for mass assignment
+
+```php
+class FooModel extends Model
+{
+    // Only fill these fields:
+    protected $fillable = ['bar', 'baz'];
+
+    // OR: Fill any fields except these:
+    protected $guarded = ['bar', 'baz'];
+}
+```
