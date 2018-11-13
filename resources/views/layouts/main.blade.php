@@ -11,6 +11,10 @@
   box-sizing: inherit !important;
 }
 
+a {
+    color: #303030;
+}
+
 html {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -60,6 +64,8 @@ nav#main ul {
 main#content {
     margin: 3em;
 }
+
+@stack('inline-styles');
         </style>
     </head>
 

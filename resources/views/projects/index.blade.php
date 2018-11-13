@@ -4,6 +4,10 @@
 
 @section('content')
 
+    <ul>
+        <li><a href="/projects/create">Create a New Project</a>
+    </ul>
+
     <h1>Projects</h1>
 
     <ul>
