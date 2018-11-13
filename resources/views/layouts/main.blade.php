@@ -72,6 +72,7 @@ main#content {
                     <li class="{{ Request::is('/*') ? 'active' : '' }}"><a href="/">Home</a></li>
                     <li class="{{ Request::is('about*') ? 'active' : '' }}"><a href="/about">About</a></li>
                     <li class="{{ Request::is('contact*') ? 'active' : '' }}"><a href="/contact">Contact</a></li>
+                    <li class="{{ Request::is('projects*') ? 'active' : '' }}"><a href="/projects">Projects</a></li>
                 </ul>
             </nav>
         </header>

@@ -19,3 +19,26 @@ view('home')->with(['foo' => $foo, 'bar' => $bar]);
 ```php
 view('home', compact($foo, $bar));
 ```
+# Eloquent, Namespacing and MVC (ep. 7)
+
+## Creating, fetching etc.
+
+```php
+// Create
+$project = new App\Project;
+$project->title = 'foo';
+$project->description = 'bar';
+$project->save();
+
+// Fetch all
+App\Project::all();
+
+// Access like an array
+App\Project::all()[1];
+
+// Fetch by primary key
+App\Project::find(1);
+
+// Map over results (this is cool)
+App\Project::all()->map->title;
+```
