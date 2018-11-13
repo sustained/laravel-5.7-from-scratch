@@ -2,6 +2,15 @@
 
 @section('title', 'View Project')
 
+@push('inline-styles')
+ul#project-tasks {
+    list-style-type: none;
+}
+li.completed label {
+    text-decoration: line-through;
+}
+@endpush
+
 @section('content')
 
     <ul>
@@ -24,15 +33,33 @@
 
         <h3>Tasks</h3>
 
-        <ul>
+        <ul id="project-tasks">
 
         @foreach($project->tasks as $task)
 
-            <li>{{ $task->description }}</li>
+            <li class="{{ $task->completed ? 'completed' : ''}}">
+                    <form action="/projects/{{ $project->id }}/tasks/{{ $task->id }}" method="POST">
+                        @csrf
+
+                        @method('PATCH')
+
+                        <input type="checkbox" name="completed" id="task-checkbox-{{ $task->id }}" onChange="this.form.submit()"{{ $task->completed ? ' checked' : '' }} />
+
+                        <label for="task-checkbox-{{ $task->id }}">{{ $task->description }}</label>
+                    </form>
+                </li>
 
         @endforeach
 
         </ul>
+
+        <h4>Add Task</h4>
+
+        <form action="" method="POST">
+            <div>
+                <input type="text" name="description" />
+            </div>
+        </form>
 
     @endif
 
