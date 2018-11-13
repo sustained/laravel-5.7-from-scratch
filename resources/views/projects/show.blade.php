@@ -23,6 +23,8 @@ li.completed label {
 
     <hr />
 
+    @include('partials.errors')
+
     <h2>{{ $project->title }}</h2>
 
     <p>{{ $project->description }}</p>
@@ -53,14 +55,20 @@ li.completed label {
 
         </ul>
 
-        <h4>Add Task</h4>
-
-        <form action="" method="POST">
-            <div>
-                <input type="text" name="description" />
-            </div>
-        </form>
-
     @endif
+
+    <h4>Add Task</h4>
+
+    <form action="/projects/{{ $project->id }}/tasks" method="POST">
+        @csrf
+
+        <div>
+            <input type="text" name="description" />
+        </div>
+
+        <div>
+            <button class="create" type="submit">Add Task</button>
+        </div>
+    </form>
 
 @endsection
