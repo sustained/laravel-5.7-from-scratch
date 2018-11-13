@@ -12,7 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    $tasks = [
+        ['task' => 'Start learning Laravel', 'completed' => true],
+        ['task' => 'Keep learning Vue', 'completed' => true],
+        ['task' => 'Keep learning Postgres', 'completed' => false],
+        ['task' => 'Keep learning Redis', 'completed' => false],
+        ['task' => 'Keep learning modern HTML/CSS', 'completed' => true],
+        ['task' => 'Stay calm', 'completed' => false]
+    ];
+
+    return view('home', ['tasks' => $tasks]);
 });
 
 

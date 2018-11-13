@@ -10,4 +10,16 @@
 
     <p>Why not <a href="/contact">contact us</a>?</p>
 
+    <h2>My Tasks</h2>
+
+    <ul style="list-style-type: none;">
+
+    @foreach($tasks as $task)
+
+        <li><input type="checkbox" {{ $task['completed'] ? 'checked' : '' }} /> {{ $task['task'] }}</li>
+
+    @endforeach
+
+    </ul>
+
 @endsection
