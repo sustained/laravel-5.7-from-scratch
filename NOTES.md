@@ -99,3 +99,42 @@ class FooModel extends Model
     protected $guarded = ['bar', 'baz'];
 }
 ```
+
+# When in Doubt - REST (episode 20)
+
+Instead of having a `ProjectTasksController` which handles everything to do with project tasks, it's entirely possible to create much more specific controllers. 
+
+For example, one could have a REST endpoint *just for completed tasks*.
+
+So you'd end up with something like this:
+
+```php
+// Controller
+class CompletedTasksController
+{
+    public function store(ProjectTask $task)
+    {
+        $task->setCompleted(true);
+
+        return back();
+    }
+
+    public function destroy(ProjectTask $task)
+    {
+        $task->setCompleted(false);
+        
+        return back();
+    }
+}
+
+// Routes
+Route::post('completed-tasks/{task}', 'CompletedTasksController@store')
+Route::delete('completed-tasks/{task}', 'CompletedTasksController@destroy')
+
+// View / Form
+@if ($task->completed)
+    @method('DELETE')
+@endif
+```
+
+This does end up moving some logic to the view layer which I dislike personally but it's an interesting concept nonetheless.
