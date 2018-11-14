@@ -18,16 +18,16 @@ class MainController extends Controller
             ['task' => 'Take a (tea) break :D', 'completed' => true]
         ];
 
-        return view('home', ['tasks' => $tasks]);
+        return view('pages.home', ['tasks' => $tasks]);
     }
 
     public function about()
     {
-        return view('about');
+        return view('pages.about');
     }
 
     public function contact()
     {
-        return view('contact');
+        return view('pages.contact');
     }
 }
