@@ -22,7 +22,7 @@ class ProjectsController extends Controller
 
     public function show(Project $project)
     {
-        $this->authorise('owns', $project);
+        $this->authorize('owns', $project);
 
         return view('projects.show', compact('project'));
     }
@@ -34,7 +34,7 @@ class ProjectsController extends Controller
 
     public function store()
     {
-        $this->authorise('owns', $project);
+        $this->authorize('owns', $project);
 
         $attributes = request()->validate([
             'title' => ['required', 'min:3'],
@@ -50,14 +50,14 @@ class ProjectsController extends Controller
 
     public function edit(Project $project)
     {
-        $this->authorise('owns', $project);
+        $this->authorize('owns', $project);
 
         return view('projects.edit', compact('project'));
     }
 
     public function update(Project $project)
     {
-        $this->authorise('owns', $project);
+        $this->authorize('owns', $project);
 
         $attributes = request()->validate([
             'title' => ['required', 'min:3'],
@@ -71,7 +71,7 @@ class ProjectsController extends Controller
 
     public function destroy(Project $project)
     {
-        $this->authorise('owns', $project);
+        $this->authorize('owns', $project);
 
         $project->delete();
 
