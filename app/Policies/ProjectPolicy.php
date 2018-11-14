@@ -27,6 +27,6 @@ class ProjectPolicy
      */
     public function owns(User $user, Project $project)
     {
-        return $project->author_id === $user->id;
+        return (int) $project->author_id === $user->id;
     }
 }
