@@ -62,7 +62,7 @@ Route::delete('/projects/{project}', 'ProjectsController@destroy');
 ```
 # Cleaner Controllers and Mass Assignment Concerns (ep. 14)
 
-# Assigning to Models
+## Assigning to Models
 
 ```php
 // Method 1
@@ -87,7 +87,7 @@ $model = new Model;
 $model->create(request(['foo', 'bar']));
 ```
 
-# (Dis)allowing fields for mass assignment
+## (Dis)allowing fields for mass assignment
 
 ```php
 class FooModel extends Model
@@ -138,3 +138,29 @@ Route::delete('completed-tasks/{task}', 'CompletedTasksController@destroy')
 ```
 
 This does end up moving some logic to the view layer which I dislike personally but it's an interesting concept nonetheless.
+
+# Authentication and Authorisation (episode 26)
+
+## Helpers
+
+```php
+auth()->id;
+auth()->user();
+auth()->check();
+auth()->guest();
+```
+
+## Adding authentication
+
+```php
+public function __construct()
+{
+    // To the entire controller:
+    $this->middleware('auth');
+
+    // To specific actions:
+    $this->middleware('auth')->only(['foo', 'bar']);
+    $this->middleware('auth')->except(['baz']);
+}
+```
+

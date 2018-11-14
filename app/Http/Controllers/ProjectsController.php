@@ -8,9 +8,14 @@ use App\Project;
 
 class ProjectsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::where('author_id', auth()->id())->get();
 
         return view('projects.index', compact('projects'));
     }
@@ -31,6 +36,8 @@ class ProjectsController extends Controller
             'title' => ['required', 'min:3'],
             'description' => 'required'
         ]);
+
+        $attributes['author_id'] = auth()->id();
 
         Project::create($attributes);
 
