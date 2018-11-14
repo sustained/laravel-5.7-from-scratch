@@ -139,7 +139,7 @@ Route::delete('completed-tasks/{task}', 'CompletedTasksController@destroy')
 
 This does end up moving some logic to the view layer which I dislike personally but it's an interesting concept nonetheless.
 
-# Authentication and Authorisation (episode 26)
+# Authentication (episode 26)
 
 ## Helpers
 
@@ -164,3 +164,41 @@ public function __construct()
 }
 ```
 
+# Authorisation (episode 27)
+
+## Methods of authorising requests
+
+```php
+// Method 1a/b
+abort_if($project->author_id !== auth()->id(), 403);
+abort_unless($project->author_id === auth()->id(), 403);
+
+// Method 2 (create a method on the User model):
+abort_unless(auth()->user()->ownsProject($project));
+```
+
+## Method 3
+
+1. Move the logic to a policy class (php artisan make:policy ProjectPolicy).
+2. Setup the policy mapping in app/Providers/AuthServiceProvider.
+3. Use the policy (many entrypoints):
+
+```php
+$this->authorize('update', $project);                           // OR
+abort_if/unless(\Gate::allows/denies('update', $project), 403); // OR
+Route::post('/projects')->middleware('can:update,project');     // OR
+auth()->user()->can/cannot('update', $project);
+```
+
+## Overriding authorisation (e.g. for an administrator)
+
+```php
+// app/Providers/AuthServiceProvider@boot
+
+$gate->before(function($user) {
+    if (logicCheckingIfUserIsAdministrator)
+    {
+        return true;
+    }
+});
+```
