@@ -38,3 +38,7 @@ Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 Route::Get('/phpinfo', function() {
     phpinfo();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
