@@ -22,4 +22,9 @@ class Project extends Model
 
         return $this->tasks()->create($attributes);
     }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
 }
