@@ -3,10 +3,22 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
 
 class Project extends Model
 {
     protected $guarded = [];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function($project) {
+            // Mail::to('sustained.dissonance+laravel@gmail.com')->send(
+            //     new ProjectCreatedMail($project)
+            // );
+        });
+    }
 
     public function tasks()
     {

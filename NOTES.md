@@ -202,3 +202,11 @@ $gate->before(function($user) {
     }
 });
 ```
+
+# Model Hooks (episode 31)
+
+The following events are available on Eloquent models:
+
+```
+retrieved, creating, created, updating, updated, saving, saved, deleting, deleted, restoring, restored
+```
