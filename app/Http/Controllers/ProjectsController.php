@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Project;
+use App\Mail\ProjectCreatedMail;
 
 class ProjectsController extends Controller
 {
@@ -38,7 +39,11 @@ class ProjectsController extends Controller
 
         $attributes['author_id'] = auth()->id();
 
-        Project::create($attributes);
+        $project = Project::create($attributes);
+
+        \Mail::to('sustained.dissonance+laravel@gmail.com')->send(
+            new ProjectCreatedMail($project)
+        );
 
         return redirect('/projects');
     }
