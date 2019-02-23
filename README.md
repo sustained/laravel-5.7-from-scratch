@@ -27,7 +27,7 @@ My **current focus is on (re)learning modern frontend and backend development to
 # Where can I find you?
 
 * I spend arguably far too much time [on Discord](https://discordapp.com/) (sustained#2329).
-* I have a [temporary website](https://sustained.thepond.xyz/) setup but it doesn't really do much yet.
+* I have a [temporary website](https://sustained.name/) setup but it doesn't really do much yet.
 * I'm not particularly well versed in the [art of tweeting](https://twitter.com/susDissonance), one could argue.
 * I don't post [Medium articles](https://medium.com/@sustained) like I should (don't all developers do that?).
 * [Here on Github](https://github.com/sustained) you can('t) find my private repos for abandoned projects!
